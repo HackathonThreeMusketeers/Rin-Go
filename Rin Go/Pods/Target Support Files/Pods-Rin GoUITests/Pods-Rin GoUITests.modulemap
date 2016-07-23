@@ -1,0 +1,6 @@
+framework module Pods_Rin_GoUITests {
+  umbrella header "Pods-Rin GoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
