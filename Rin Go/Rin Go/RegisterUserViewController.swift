@@ -32,9 +32,15 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func completionButtonAction(sender: UIButton) {
     
-    request.registerUser(userNameTextField.text!, farmName: farmNameTextField.text!)
+    request.registerUser(userNameTextField.text!, farmName: farmNameTextField.text!,callBackClosure: completeUserResister)
         
     }
+    
+    func completeUserResister(){
+        self.performSegueWithIdentifier("WriteDiary", sender: "")
+    }
+    
+    
     /*
     // MARK: - Navigation
 

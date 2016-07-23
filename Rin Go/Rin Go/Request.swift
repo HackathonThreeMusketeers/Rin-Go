@@ -16,18 +16,20 @@ class Request: NSObject {
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     
     func setHeader(hash:String){
+        self.appDelegate.userInfo.removeObjectForKey("APPLEDIARYID")
+        
         self.appDelegate.userInfo.setObject(hash, forKey: "APPLEDIARYID")
     }
     
     func getHeader() -> NSDictionary{
-        return ["hash":self.appDelegate.userInfo.objectForKey("hash")!]
+        return ["APPLEDIARYID":self.appDelegate.userInfo.objectForKey("APPLEDIARYID")!]
     }
     
     func checkSignIn() -> Bool{
      return false
     }
     
-    func registerUser(userName:String,farmName:String){
+    func registerUser(userName:String,farmName:String,callBackClosure:()->Void)->Void{
         
         let parameters = [
         "user":userName,
@@ -37,6 +39,7 @@ class Request: NSObject {
         Alamofire.request(.POST, baseURL+"/adduser", parameters: parameters, encoding: .JSON)
             .responseJSON { response in
                 self.setHeader(response.result.value!["hash"] as! String)
+                callBackClosure()
 }
 }
 }
