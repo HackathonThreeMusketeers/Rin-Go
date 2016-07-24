@@ -11,6 +11,7 @@ import UIKit
 class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
+    @IBOutlet weak var sc: UIScrollView!
     
     let request = Request()
     
@@ -22,15 +23,12 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
     let statusArray = ["未選択","発芽","転用","開花","満開","落花"]
     
     @IBOutlet weak var timeStampLabel: UILabel!
-    @IBOutlet weak var farmNameLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var otherWorkTextField: UITextField!
     @IBOutlet weak var workTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
-    var userNameString:String = ""
-    var farmNameString:String = ""
     
     @IBOutlet weak var meetingTextField: UITextView!
+    
+    var txtActiveField = UITextView()
     var component0 :String = ""
     var component1 :String = ""
     
@@ -45,9 +43,6 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        userNameLabel.text = self.appDelegate.userInfo.objectForKey("user")! as! String
-        farmNameLabel.text = self.appDelegate.userInfo.objectForKey("place")! as! String
         
         dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
         dateFormatter.timeStyle = .NoStyle // 時刻だけ表示させない
@@ -149,11 +144,34 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
     }
     
     @IBAction func completeWriteDiary(sender: AnyObject) {
-        request.writeDiary(timeStampLabel.text!, action_id: action_id, action_memo: otherWorkTextField.text!, status_id: status_id, other: meetingTextField.text,callBackClosure: completedWriteDiary)
+        request.writeDiary(timeStampLabel.text!, action_id: action_id, action_memo: "", status_id: status_id, other: meetingTextField.text,callBackClosure: completedWriteDiary)
     }
     
     func completedWriteDiary(){
         self.performSegueWithIdentifier("CompleteWriteDiary", sender: "")
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
+                  replacementText text: String) -> Bool {
+        
+        return true
+    }
+    
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        
+        let userInfo = notification.userInfo!
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+        var txtLimit = txtActiveField.frame.origin.y + txtActiveField.frame.height + 8.0
+        let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        if txtLimit >= kbdLimit {
+            sc.contentOffset.y = txtLimit - kbdLimit
+        }
+    }
+    
+    func handleKeyboardWillHideNotification(notification: NSNotification) {
+        sc.contentOffset.y = 0
     }
     
     /*
