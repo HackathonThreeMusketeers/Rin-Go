@@ -8,6 +8,9 @@ target 'Rin Go' do
   # Pods for Rin Go
 
   pod 'Alamofire'
+  pod 'RxSwift',    '~> 2.0'
+  pod 'RxCocoa',    '~> 2.0'
+  pod 'RealmSwift'
 
   target 'Rin GoTests' do
     inherit! :search_paths

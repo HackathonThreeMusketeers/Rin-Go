@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import WebKit
 
-class WebViewController: UIViewController {
-
+class WebViewController: UIViewController, UIWebViewDelegate
+{
+   
+    @IBOutlet weak var webview: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.webview.delegate = self
+        let url = NSURL(string: "http://applediary.herokuapp.com")
+        let req = NSURLRequest(URL:url!)
+        self.webview!.loadRequest(req)
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +29,13 @@ class WebViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        webview!.removeFromSuperview()
+    }
 
+    func webView(webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+        
+    }
     /*
     // MARK: - Navigation
 

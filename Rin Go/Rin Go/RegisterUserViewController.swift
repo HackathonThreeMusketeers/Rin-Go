@@ -37,9 +37,8 @@ class RegisterUserViewController: UIViewController, UITextFieldDelegate {
     }
     
     func completeUserResister(){
-        self.performSegueWithIdentifier("WriteDiary", sender: "")
+        self.performSegueWithIdentifier("CompleteUserRegister", sender: "")
     }
-    
     
     /*
     // MARK: - Navigation

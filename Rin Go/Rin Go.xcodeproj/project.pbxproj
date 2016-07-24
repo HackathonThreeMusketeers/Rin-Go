@@ -11,7 +11,6 @@
 		0D11EEB11D4343FB0080CE7F /* WriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11EEB01D4343FB0080CE7F /* WriteDiaryViewController.swift */; };
 		0D11EEB31D43440A0080CE7F /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11EEB21D43440A0080CE7F /* WebViewController.swift */; };
 		0D11EEB51D4344240080CE7F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11EEB41D4344240080CE7F /* Request.swift */; };
-		0D11EEB71D43442D0080CE7F /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11EEB61D43442D0080CE7F /* Const.swift */; };
 		0D398CBB1D434277000D0F93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D398CBA1D434277000D0F93 /* AppDelegate.swift */; };
 		0D398CBD1D434277000D0F93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D398CBC1D434277000D0F93 /* ViewController.swift */; };
 		0D398CC21D434277000D0F93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D398CC11D434277000D0F93 /* Assets.xcassets */; };
@@ -19,6 +18,11 @@
 		0D398CD01D434277000D0F93 /* Rin_GoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D398CCF1D434277000D0F93 /* Rin_GoTests.swift */; };
 		0D398CDB1D434277000D0F93 /* Rin_GoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D398CDA1D434277000D0F93 /* Rin_GoUITests.swift */; };
 		0D8E9C291D4371920048AD16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D8E9C271D4371920048AD16 /* Main.storyboard */; };
+		0D8E9C2D1D43CEDA0048AD16 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8E9C2A1D43CEDA0048AD16 /* bg.png */; };
+		0D8E9C2E1D43CEDA0048AD16 /* kako.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8E9C2B1D43CEDA0048AD16 /* kako.png */; };
+		0D8E9C2F1D43CEDA0048AD16 /* make.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D8E9C2C1D43CEDA0048AD16 /* make.png */; };
+		0D8E9C3F1D4445930048AD16 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8E9C3E1D4445930048AD16 /* Diary.swift */; };
+		0D8E9C411D4451DE0048AD16 /* CompleteWriteDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8E9C401D4451DE0048AD16 /* CompleteWriteDiaryViewController.swift */; };
 		6B6087DDE95CFE84547D34D0 /* Pods_Rin_Go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C69262DD91EFE1A84A712EB /* Pods_Rin_Go.framework */; };
 		86C7A6C4399C674E8A80B5E7 /* Pods_Rin_GoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1788CDA7B82A2C2443610DF6 /* Pods_Rin_GoTests.framework */; };
 		8FF4BB9AB14DC108B8DF9CE7 /* Pods_Rin_GoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE6B21136C79E65538BA2400 /* Pods_Rin_GoUITests.framework */; };
@@ -46,7 +50,6 @@
 		0D11EEB01D4343FB0080CE7F /* WriteDiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteDiaryViewController.swift; sourceTree = "<group>"; };
 		0D11EEB21D43440A0080CE7F /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		0D11EEB41D4344240080CE7F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		0D11EEB61D43442D0080CE7F /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		0D398CB71D434277000D0F93 /* Rin Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rin Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D398CBA1D434277000D0F93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D398CBC1D434277000D0F93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +63,11 @@
 		0D398CDA1D434277000D0F93 /* Rin_GoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rin_GoUITests.swift; sourceTree = "<group>"; };
 		0D398CDC1D434277000D0F93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D8E9C281D4371920048AD16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0D8E9C2A1D43CEDA0048AD16 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		0D8E9C2B1D43CEDA0048AD16 /* kako.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kako.png; sourceTree = "<group>"; };
+		0D8E9C2C1D43CEDA0048AD16 /* make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = make.png; sourceTree = "<group>"; };
+		0D8E9C3E1D4445930048AD16 /* Diary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		0D8E9C401D4451DE0048AD16 /* CompleteWriteDiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteWriteDiaryViewController.swift; sourceTree = "<group>"; };
 		1788CDA7B82A2C2443610DF6 /* Pods_Rin_GoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rin_GoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C69262DD91EFE1A84A712EB /* Pods_Rin_Go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rin_Go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E82F3B5BBAE2EA275EA7D4F /* Pods-Rin Go.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rin Go.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rin Go/Pods-Rin Go.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +135,9 @@
 				0D398CBA1D434277000D0F93 /* AppDelegate.swift */,
 				0D398CBC1D434277000D0F93 /* ViewController.swift */,
 				0D8E9C271D4371920048AD16 /* Main.storyboard */,
+				0D8E9C2A1D43CEDA0048AD16 /* bg.png */,
+				0D8E9C2B1D43CEDA0048AD16 /* kako.png */,
+				0D8E9C2C1D43CEDA0048AD16 /* make.png */,
 				0D398CC11D434277000D0F93 /* Assets.xcassets */,
 				0D398CC31D434277000D0F93 /* LaunchScreen.storyboard */,
 				0D398CC61D434277000D0F93 /* Info.plist */,
@@ -134,7 +145,8 @@
 				0D11EEB01D4343FB0080CE7F /* WriteDiaryViewController.swift */,
 				0D11EEB21D43440A0080CE7F /* WebViewController.swift */,
 				0D11EEB41D4344240080CE7F /* Request.swift */,
-				0D11EEB61D43442D0080CE7F /* Const.swift */,
+				0D8E9C3E1D4445930048AD16 /* Diary.swift */,
+				0D8E9C401D4451DE0048AD16 /* CompleteWriteDiaryViewController.swift */,
 			);
 			path = "Rin Go";
 			sourceTree = "<group>";
@@ -293,8 +305,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D8E9C291D4371920048AD16 /* Main.storyboard in Resources */,
+				0D8E9C2E1D43CEDA0048AD16 /* kako.png in Resources */,
 				0D398CC51D434277000D0F93 /* LaunchScreen.storyboard in Resources */,
+				0D8E9C2D1D43CEDA0048AD16 /* bg.png in Resources */,
 				0D398CC21D434277000D0F93 /* Assets.xcassets in Resources */,
+				0D8E9C2F1D43CEDA0048AD16 /* make.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,13 +457,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8E9C3F1D4445930048AD16 /* Diary.swift in Sources */,
 				0D11EEB11D4343FB0080CE7F /* WriteDiaryViewController.swift in Sources */,
 				0D11EEB51D4344240080CE7F /* Request.swift in Sources */,
 				0D398CBD1D434277000D0F93 /* ViewController.swift in Sources */,
 				0D11EEAF1D4343E20080CE7F /* RegisterUserViewController.swift in Sources */,
+				0D8E9C411D4451DE0048AD16 /* CompleteWriteDiaryViewController.swift in Sources */,
 				0D11EEB31D43440A0080CE7F /* WebViewController.swift in Sources */,
 				0D398CBB1D434277000D0F93 /* AppDelegate.swift in Sources */,
-				0D11EEB71D43442D0080CE7F /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
