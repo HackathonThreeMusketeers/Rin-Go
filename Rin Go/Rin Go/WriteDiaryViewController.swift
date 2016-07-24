@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate {
+class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate{
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate //AppDelegateのインスタンスを取得
     @IBOutlet weak var sc: UIScrollView!
@@ -44,9 +44,18 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sc.scrollEnabled = false
+        
+        timeStampLabel.layer.cornerRadius = 5
+        
+        timeStampLabel.clipsToBounds = true
+        
+        meetingTextField.layer.cornerRadius = 10
+        meetingTextField.delegate = self
+        
         dateFormatter.locale = NSLocale(localeIdentifier: "ja_JP") // ロケールの設定
         dateFormatter.timeStyle = .NoStyle // 時刻だけ表示させない
-        dateFormatter.dateStyle = .FullStyle
+        dateFormatter.dateStyle = .ShortStyle
         timeStampLabel.text = dateFormatter.stringFromDate(now)
         
         pickerView = UIPickerView()
@@ -75,6 +84,15 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        
+    }
+    
     // for delegate
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         if(pickerView.tag == self.pickerView.tag){
@@ -91,6 +109,7 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
             return statusArray.count
         }
     }
+    
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         if(pickerView.tag == 0){
             return workArray[row] as! String
@@ -151,6 +170,11 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
         self.performSegueWithIdentifier("CompleteWriteDiary", sender: "")
     }
     
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool{
+        txtActiveField = textView
+        return true
+    }
+    
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange,
                   replacementText text: String) -> Bool {
         
@@ -164,6 +188,9 @@ class WriteDiaryViewController: UIViewController, UIPickerViewDelegate, UITextFi
         let myBoundSize: CGSize = UIScreen.mainScreen().bounds.size
         var txtLimit = txtActiveField.frame.origin.y + txtActiveField.frame.height + 8.0
         let kbdLimit = myBoundSize.height - keyboardScreenEndFrame.size.height
+        
+        print("テキストフィールドの下辺：(\(txtLimit))")
+        print("キーボードの上辺：(\(kbdLimit))")
         
         if txtLimit >= kbdLimit {
             sc.contentOffset.y = txtLimit - kbdLimit
